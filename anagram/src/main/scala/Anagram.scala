@@ -1,13 +1,13 @@
-class Anagram(input: String) {
-  def matches(words: Seq[String]) = {
-    val lowerCaseString = input.toLowerCase
 
-    words.filter{
-      word =>
-        val lowerCaseWord = word.toLowerCase
-        word.length == input.length &&
-          lowerCaseWord != lowerCaseString &&
-          (lowerCaseString.toSeq diff lowerCaseWord.toSeq).isEmpty
-    }
+class Anagram(input: String) {
+
+  val text = input.toLowerCase
+
+  def process(word: String) = word.toList.sorted
+
+  def test(word: String) = {
+    word.toLowerCase != text && process(word.toLowerCase) == process(text)
   }
+
+  def matches(words: Seq[String]) = words.filter(word => test(word))
 }
