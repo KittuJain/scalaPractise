@@ -1,0 +1,8 @@
+[0m[[0minfo[0m] [0m[32mGradeSchoolSpecs:[0m[0m
+[0m[[0minfo[0m] [0m[32m- empty school[0m[0m
+[0m[[0minfo[0m] [0m[31m- add student *** FAILED ***[0m[0m
+[0m[[0minfo[0m] [0m[31m  Map() was not equal to Map(2 -> List(Aimee)) (grade_school_test.scala:12)[0m[0m
+[0m[[0minfo[0m] [0m[33m- add more students in same class (pending)[0m[0m
+[0m[[0minfo[0m] [0m[33m- add students to different grades (pending)[0m[0m
+[0m[[0minfo[0m] [0m[33m- get students in a grade (pending)[0m[0m
+[0m[[0minfo[0m] [0m[33m- get students in a non-existant grade (pending)[0m[0m
