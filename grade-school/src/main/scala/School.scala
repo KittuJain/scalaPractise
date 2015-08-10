@@ -1,22 +1,14 @@
+
 class School {
-  var gradeWithStudents = Map.empty[Int, Seq[String]]
+  var schoolDB = Map.empty[Int, Seq[String]].withDefaultValue(Seq())
 
-  def add(name: String, grade: Int) = {
-    val merged = gradeWithStudents.toSeq ++ Map(grade -> Seq(name)).toSeq
-    val groupedByGrade = merged.groupBy(_._1)
-
-    gradeWithStudents = groupedByGrade.mapValues(_.flatMap(_._2).toList)
+  def add(name: String, gradeNumber: Int) = {
+    schoolDB = schoolDB.updated(gradeNumber, grade(gradeNumber) :+ name)
   }
 
-  def db = {
-    gradeWithStudents
-  }
+  def db = schoolDB
 
-  def grade(standard: Int) = {
-    gradeWithStudents.flatMap{case (g, students) => if (g == standard) students else Seq.empty}.toSeq
-  }
+  def grade(standard: Int) = schoolDB.getOrElse(standard, Seq.empty[String])
 
-  def sorted = {
-    gradeWithStudents.toSeq.sortBy(_._1).toMap.mapValues(_.sortWith(_ < _))
-  }
+  def sorted = schoolDB.toSeq.sortBy(_._1).toMap.mapValues(_.sorted)
 }
